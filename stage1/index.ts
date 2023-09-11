@@ -22,11 +22,14 @@ app.get("/", (req: Request, res: Response) => {
   const currentDayOfWeek = daysOfWeek[currentDate.getUTCDay()];
 
   res.status(200).json({
-    slack_name: "Otuka Gideon",
+    slack_name: "aribaba",
     current_day: currentDayOfWeek,
     utc_time: currentDate.toISOString(),
-    track: "Backend",
-    github_file_url: "",
+    track: "backend",
+    github_file_url:
+      "https://github.com/Gidi-on/hngx/blob/master/stage1/index.ts",
+    github_repo_url: "https://github.com/Gidi-on/hngx",
+    status_code: 200,
   });
 });
 
