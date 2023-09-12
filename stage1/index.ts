@@ -24,7 +24,7 @@ app.get("/api", (req: Request, res: Response) => {
   return res.status(200).json({
     slack_name: req.query.slack_name,
     current_day: currentDayOfWeek,
-    utc_time: currentDate.toISOString(),
+    utc_time: currentDate.toISOString().slice(0, -5) + "Z",
     track: req.query.track,
     github_file_url:
       "https://github.com/Gidi-on/hngx/blob/master/stage1/index.ts",
