@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 // Defining route
-app.get("/", (req: Request, res: Response) => {
+app.get("/api", (req: Request, res: Response) => {
   // Get the current UTC time
   const currentDate = new Date();
   currentDate.setUTCHours(currentDate.getUTCHours());
@@ -21,11 +21,11 @@ app.get("/", (req: Request, res: Response) => {
   ];
   const currentDayOfWeek = daysOfWeek[currentDate.getUTCDay()];
 
-  res.status(200).json({
-    slack_name: "aribaba",
+  return res.status(200).json({
+    slack_name: req.query.slack_name,
     current_day: currentDayOfWeek,
     utc_time: currentDate.toISOString(),
-    track: "backend",
+    track: req.query.track,
     github_file_url:
       "https://github.com/Gidi-on/hngx/blob/master/stage1/index.ts",
     github_repo_url: "https://github.com/Gidi-on/hngx",
